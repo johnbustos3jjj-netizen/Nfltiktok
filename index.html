@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Ticker - All Bordered Elements</title>
+  <style>
+    /* Reset layout styles */
+    body {
+      margin: 0;
+      padding: 40px 0;
+      background-color: #0d0e12;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* Horizontal container strip */
+    .ticker-wrapper {
+      overflow: hidden;         /* Hides elements moving off-screen */
+      white-space: nowrap;      /* Keeps all team blocks on one line */
+      display: flex;            /* Positions Track 1 and Track 2 side-by-side */
+      width: 100%;
+      background: #16171d;         
+      padding: 20px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      border-top: 2px solid #23252f;
+      border-bottom: 2px solid #23252f;
+    }
+
+    /* The animation lanes */
+    .ticker-track {
+      display: flex;
+      flex-shrink: 0;
+      animation: scroll-right 60s linear infinite; /* Smooth speed to account for more content */
+    }
+
+    /* 1. BORDERED MAIN TEAM CARD */
+    .ticker-track .team-card {
+      display: flex;
+      flex-direction: column;   /* Stacks elements vertically */
+      align-items: center;      /* Centers elements horizontally inside the card */
+      width: 120px;             /* Optimized width to hold all elements neatly */
+      margin: 0 12px;           /* Spacing between different team cards */
+      padding: 12px;       
+      background: #1f2029;      
+      border: 2px solid #4a4e61; /* Border 1: Main outer frame */
+      border-radius: 12px;        
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* 2. BORDERED LOGO BOX */
+    .team-logo-container {
+      height: 54px;
+      width: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;      
+      background: #16171d;
+      border: 1px solid #3a3f50; /* Border 2: Inner logo box border */
+      border-radius: 8px;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+
+    .team-logo-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* 3. BORDERED TEAM NAME BADGE */
+    .team-name-badge {
+      width: 100%;
+      padding: 4px 0;
+      margin-bottom: 10px;
+      background: #282a36;
+      border: 1px solid #3d4154; /* Border 3: Text label box border */
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* 4. BORDERED USERNAME INPUT FIELD */
+    .username-input {
+      width: 100%;
+      padding: 6px 8px;
+      background: #0d0e12;
+      border: 1px solid #4a4e61; /* Border 4: Active input text field border */
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 11px;
+      text-align: center;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    /* Highlight border color and add a slight glow when clicked */
+    .username-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Freeze animation instantly when focused or hovered so users can interact easily */
+    .ticker-wrapper:hover .ticker-track,
+    .ticker-wrapper:focus-within .ticker-track {
+      animation-play-state: paused;
+    }
+
+    /* Animation keyframes moving from left to right */
+    @keyframes scroll-right {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ticker-wrapper">
+    
+    <!-- TRACK 1 (All 32 Teams) -->
+    <div class="ticker-track">
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://upload.wikimedia.org/wikipedia/en/7/72/Arizona_Cardinals_logo.svg" alt="Cardinals Logo"></div>
+        <div class="team-name-badge">Cardinals</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Falcons Logo"></div>
+        <div class="team-name-badge">Falcons</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Ravens Logo"></div>
+        <div class="team-name-badge">Ravens</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Bills Logo"></div>
+        <div class="team-name-badge">Bills</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Panthers Logo"></div>
+        <div class="team-name-badge">Panthers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Bears Logo"></div>
+        <div class="team-name-badge">Bears</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Bengals Logo"></div>
+        <div class="team-name-badge">Bengals</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Browns Logo"></div>
+        <div class="team-name-badge">Browns</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Cowboys Logo"></div>
+        <div class="team-name-badge">Cowboys</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com0" alt="Broncos Logo"></div>
+        <div class="team-name-badge">Broncos</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com1" alt="Lions Logo"></div>
+        <div class="team-name-badge">Lions</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Packers Logo"></div>
+        <div class="team-name-badge">Packers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com3" alt="Texans Logo"></div>
+        <div class="team-name-badge">Texans</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com4" alt="Colts Logo"></div>
+        <div class="team-name-badge">Colts</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com5" alt="Jaguars Logo"></div>
+        <div class="team-name-badge">Jaguars</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com6" alt="Chiefs Logo"></div>
+        <div class="team-name-badge">Chiefs</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com7" alt="Raiders Logo"></div>
+        <div class="team-name-badge">Raiders</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com8" alt="Chargers Logo"></div>
+        <div class="team-name-badge">Chargers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com9" alt="Rams Logo"></div>
+        <div class="team-name-badge">Rams</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com0" alt="Dolphins Logo"></div>
+        <div class="team-name-badge">Dolphins</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com1" alt="Vikings Logo"></div>
+        <div class="team-name-badge">Vikings</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Patriots Logo"></div>
+        <div class="team-name-badge">Patriots</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Saints Logo"></div>
+        <div class="team-name-badge">Saints</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Giants Logo"></div>
+        <div class="team-name-badge">Giants</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Jets Logo"></div>
+        <div class="team-name-badge">Jets</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Eagles Logo"></div>
+        <div class="team-name-badge">Eagles</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Steelers Logo"></div>
+        <div class="team-name-badge">Steelers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="49ers Logo"></div>
+        <div class="team-name-badge">49ers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Seahawks Logo"></div>
+        <div class="team-name-badge">Seahawks</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Buccaneers Logo"></div>
+        <div class="team-name-badge">Buccaneers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Titans Logo"></div>
+        <div class="team-name-badge">Titans</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Commanders Logo"></div>
+        <div class="team-name-badge">Commanders</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Cardinals Logo"></div>
+        <div class="team-name-badge">Cardinals</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Falcons Logo"></div>
+        <div class="team-name-badge">Falcons</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Ravens Logo"></div>
+        <div class="team-name-badge">Ravens</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Bills Logo"></div>
+        <div class="team-name-badge">Bills</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Panthers Logo"></div>
+        <div class="team-name-badge">Panthers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Bears Logo"></div>
+        <div class="team-name-badge">Bears</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Bengals Logo"></div>
+        <div class="team-name-badge">Bengals</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Browns Logo"></div>
+        <div class="team-name-badge">Browns</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com" alt="Cowboys Logo"></div>
+        <div class="team-name-badge">Cowboys</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com0" alt="Broncos Logo"></div>
+        <div class="team-name-badge">Broncos</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com1" alt="Lions Logo"></div>
+        <div class="team-name-badge">Lions</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Packers Logo"></div>
+        <div class="team-name-badge">Packers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com3" alt="Texans Logo"></div>
+        <div class="team-name-badge">Texans</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com4" alt="Colts Logo"></div>
+        <div class="team-name-badge">Colts</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com5" alt="Jaguars Logo"></div>
+        <div class="team-name-badge">Jaguars</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com6" alt="Chiefs Logo"></div>
+        <div class="team-name-badge">Chiefs</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com7" alt="Raiders Logo"></div>
+        <div class="team-name-badge">Raiders</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com8" alt="Chargers Logo"></div>
+        <div class="team-name-badge">Chargers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com9" alt="Rams Logo"></div>
+        <div class="team-name-badge">Rams</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com0" alt="Dolphins Logo"></div>
+        <div class="team-name-badge">Dolphins</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com1" alt="Vikings Logo"></div>
+        <div class="team-name-badge">Vikings</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Patriots Logo"></div>
+        <div class="team-name-badge">Patriots</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Saints Logo"></div>
+        <div class="team-name-badge">Saints</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Giants Logo"></div>
+        <div class="team-name-badge">Giants</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Jets Logo"></div>
+        <div class="team-name-badge">Jets</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Eagles Logo"></div>
+        <div class="team-name-badge">Eagles</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Steelers Logo"></div>
+        <div class="team-name-badge">Steelers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="49ers Logo"></div>
+        <div class="team-name-badge">49ers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Seahawks Logo"></div>
+        <div class="team-name-badge">Seahawks</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Buccaneers Logo"></div>
+        <div class="team-name-badge">Buccaneers</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Titans Logo"></div>
+        <div class="team-name-badge">Titans</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+      <div class="team-card">
+        <div class="team-logo-container"><img src="https://placeholder.com2" alt="Commanders Logo"></div>
+        <div class="team-name-badge">Commanders</div>
+        <input type="text" class="username-input" placeholder="">
+      </div>
+     </div>
+    </div>
+</body>
+</html>
