@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OBS Sheets Ticker</title>
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+            background-color: transparent;
+            overflow: hidden;
+            width: 100vw; height: 100vh;
+        }
+        .ticker-wrap {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            box-sizing: border-box;
+        }
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: ticker-move 12s linear infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        @keyframes ticker-move {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ticker-wrap">
+        <div class="ticker" id="ticker-text">Loading message...</div>
+    </div>
+
+    <script>
+        // PASTE YOUR GOOGLE SHEET CSV LINK BETWEEN THE QUOTES BELOW
+        const sheetUrl = "https://docs.google.com/spreadsheets/d/1CFKVepyvHPNiKNEWhW-y8BoutfAuWCUl4NIqglPhmAY/edit?usp=sharing";
+
+        async function updateTicker() {
+            try {
+                const response = await fetch(sheetUrl);
+                const text = await response.text();
+                // Cleans up any quotes or extra line breaks from the sheet
+                const cleanedText = text.replace(/["\r\n]/g, " ").trim();
+                document.getElementById('ticker-text').innerText = cleanedText;
+            } catch (error) {
+                document.getElementById('ticker-text').innerText = "Error loading text from Google Sheets";
+            }
+        }
+
+        Load immediately on startup
+        updateTicker();
+        Automatically checks your Google Sheet for updates every 30 seconds
+        setInterval(updateTicker, 30000);
+    </script>
+
+</body>
+</html>
