@@ -26,12 +26,11 @@
       border-bottom: 2px solid #23252f;
     }
 
-    /* The animation lanes */
-    .ticker-track {
-      display: flex;
-      flex-shrink: 0;
-      animation: scroll-left 15s linear infinite; /* Smooth speed to account for more content */
-    }
+.ticker-runner {
+  display: flex;
+  width: max-content; /* Vital: Keeps tracks single-file */
+  animation: scroll-left 30s linear infinite;
+}
 
     /* 1. BORDERED MAIN TEAM CARD */
     .ticker-track .team-card {
